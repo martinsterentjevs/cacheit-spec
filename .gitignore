@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Eleventy build output
+_site/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vs/
+*.user
+
+# Logs
+npm-debug.log*
