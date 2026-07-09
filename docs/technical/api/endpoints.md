@@ -1,5 +1,5 @@
 # API Endpoints
-Created: 08/07/2026 Last updated: 08/07/2026
+Created: 08/07/2026 Last updated: 09/07/2026
 
 ## Overview
 This document outlines the up-to-date endpoints and schema usages as per the endpoints as the specification outline for CacheIt.
@@ -38,7 +38,7 @@ Last Updated: 06/07/2026
 | DELETE | `/account/devices/{deviceId}` | Yes | N/A | N/A | 204 | 403, 404 | Revoke a specific device session. |
 
 ### Session Endpoints
-Last Updated: 06/07/2026
+Last Updated: 09/07/2026
 
 Auth-related endpoints. JWT rotation, login/registration are handled here.
 
@@ -46,7 +46,7 @@ Auth-related endpoints. JWT rotation, login/registration are handled here.
 |---|---|---|---|---|---|---|---|
 | POST | `/auth/register` | No | `RegisterDto` | `AccountSessionDto` | 200 | 400 | Either username or email required. Returns MEK envelope + session. |
 | POST | `/auth/login` | No | `LoginDto` | `AccountSessionDto` | 200 | 401 | Either username or email required. Returns MEK envelope + session. |
-| POST | `/auth/refresh` | No | `RefreshRequestDto` | `AccountSessionDto` | 200 | 401 | Opaque refresh token. Returns `ACCOUNT_TERMINATED` if account deleted. |
+| POST | `/auth/refresh` | No | `RefreshRequestDto` | `AccountSessionDto` | 200 | 401 | Opaque refresh token.**NEW [09/07/2026]:** `ACCOUNT_TERMINATED` is reserved as a WS best-effort nudge, Returns `401` on account deletion - see [0001-session-endpoint-clarifiction](../architecture/decisions/0001-Session-endpoint-clarification.md) |
 | POST | `/auth/logout` | Yes | N/A | N/A | 204 | 401 | Invalidates current device refresh token. |
 
 ### Note Endpoints
